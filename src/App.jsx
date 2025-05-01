@@ -15,11 +15,11 @@ export default function App() {
     nombre: '',
     edad: '',
     email: '',
-    range: '',
+    range: '20',
     pais: '',
     fecha_actual: '',
     aceptaTerminos: true,
-    teGustaReact: false,
+    tecnologias: [],
     fotoPerfil: null,
     multipleDocumentos: [],
   }
@@ -56,107 +56,170 @@ export default function App() {
 
   return (
     <>
-      <h1>App with <code>react-use-form-lite</code></h1>
-      <div className="container">
-        <div className="form">
-          <div className="form-group">
-            <label htmlFor="nombre">Nombre</label>
-            <input type='text' {...register('nombre')} />
-          </div>
+      <div className="container mt-5 mb-5">
+        <h1>App with <code>react-use-form-lite</code></h1>
+        <div className="row">
+          <div className="col-md-6 form-container">
+            <div className="row">
+              <div className="col-md-8 mb-3">
+                <div className="mb-0">
+                  <label htmlFor="nombre">Nombre</label>
+                  <input type='text' className='form-control' {...register('nombre')} />
+                </div>
+              </div>
+              <div className="col-md-4 mb-3">
+                <div className="mb-0">
+                  <label htmlFor="Edad">Edad</label>
+                  <input type='number' className='form-control' {...register('edad')} />
+                </div>
+              </div>
+            </div>
 
-          <div className="form-group">
-            <label htmlFor="Edad">Edad</label>
-            <input type='number' {...register('edad')} />
-          </div>
+            <div className="mb-0">
+              <label htmlFor="Email">Email</label>
+              <input type="email" className='form-control' {...register('email')} />
+            </div>
+            <div className="row">
+              <div className="col-md-8 mb-3">
+                <label>País</label>
+                <select name="pais" className="form-select" {...register('pais', { type: 'select' })}>
+                  <option value="">Seleccione un país</option>
+                  <option value="Colombia">Colombia</option>
+                  <option value="México">México</option>
+                  <option value="Venezuela">Venezuela</option>
+                </select>
+              </div>
+              <div className="col-md-4 mb-3">
+                <label htmlFor="fecha">Fecha actual</label>
+                <input type="date" className="form-control" {...register('fecha_actual')} />
+              </div>
+            </div>
 
-          <div className="form-group">
-            <label htmlFor="Email">Email</label>
-            <input type="email" {...register('email')} />
-          </div>
+            <div className="row">
+              <div className="col-md-6 mb-3">
+                <div className="mb-0">
+                  <label htmlFor="range">Rango</label>
+                  <input type="range" className="form-range" {...register('range')} />
+                </div>
+              </div>
+              <div className="col-md-6 mb-3">
+                <div className="mb-3">
+                  <label className="form-label">¿Aceptar términos?</label>
+                  <div className="radio-group d-flex gap-3">
+                    <label className="form-check-label d-flex align-items-center gap-1">
+                      <input type="radio" {...register('aceptaTerminos', { type: 'radio', value: 'Sí' })} className="form-check-input" />
+                      Sí
+                    </label>
+                    <label className="form-check-label d-flex align-items-center gap-1">
+                      <input type="radio" {...register('aceptaTerminos', { type: 'radio', value: 'No' })} className="form-check-input" />
+                      No
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-          <div className="form-group">
-            <label htmlFor="range">Rango</label>
-            <input type="range" {...register('range')} />
-          </div>
+            <div className="mb-3">
+              <label className="form-label">¿Dominas estas tecnologías?</label>
 
-          <div className="form-group">
-            <label>País</label>
-            <select name="pais" {...register('pais', { type: 'select' })}>
-              <option value="">Seleccione un país</option>
-              <option value="Colombia">Colombia</option>
-              <option value="México">México</option>
-              <option value="Venezuela">Venezuela</option>
-            </select>
-          </div>
+              <div className="form-check">
+                <input
+                  type="checkbox"
+                  className="form-check-input"
+                  id="js"
+                  {...register('tecnologias', { type: 'checkbox', value: 'JavaScript' })}
+                />
+                <label className="form-check-label" htmlFor="js">JavaScript</label>
+              </div>
 
-          <div className="form-group">
-            <label htmlFor="fecha">Fecha actual</label>
-            <input type="date" {...register('fecha_actual')} />
-          </div>
+              <div className="form-check">
+                <input
+                  type="checkbox"
+                  className="form-check-input"
+                  id="react"
+                  {...register('tecnologias', { type: 'checkbox', value: 'React' })}
+                />
+                <label className="form-check-label" htmlFor="react">React</label>
+              </div>
 
-          <div className="form-group">
-            <label>¿Aceptar términos?</label>
-            <div className="radio-group">
-              <label><input type="radio" {...register('aceptaTerminos', { type: 'radio', value: 'Sí' })} /> Sí</label>
-              <label><input type="radio" {...register('aceptaTerminos', { type: 'radio', value: 'No' })} /> No</label>
+              <div className="form-check">
+                <input
+                  type="checkbox"
+                  className="form-check-input"
+                  id="ts"
+                  {...register('tecnologias', { type: 'checkbox', value: 'TypeScript' })}
+                />
+                <label className="form-check-label" htmlFor="ts">TypeScript</label>
+              </div>
+
+              <div className="form-check">
+                <input
+                  type="checkbox"
+                  className="form-check-input"
+                  id="django"
+                  {...register('tecnologias', { type: 'checkbox', value: 'Python + Django' })}
+                />
+                <label className="form-check-label" htmlFor="django">Python + Django</label>
+              </div>
+            </div>
+
+            <div className="mb-3">
+              <label>Foto de perfil</label>
+              <input type="file" className="form-control form-control-sm" accept="image/*" {...register('fotoPerfil', { type: 'file' })} />
+            </div>
+
+            <div className="mb-0">
+              <label>Archivos</label>
+              <input type="file" className="form-control form-control-sm" {...register('multipleDocumentos', { type: 'file' })} multiple />
+            </div>
+
+            <div className="d-flex justify-content-center gap-2 mt-3">
+              <button type="submit" onClick={handleSubmitForm} className="btn btn-primary">
+                Enviar formulario
+              </button>
+              <button type="button" onClick={resetForm} className="btn btn-secondary">
+                Limpiar formulario
+              </button>
             </div>
           </div>
+          <div className="col-md-6">
+            <div className="json-viewer h-100">
+              {isLoading && <div className="spinner"></div>}
 
-          <div className="form-group">
-            <label>¿Te gusta React?</label>
-            <label><input type="checkbox" {...register('teGustaReact', { type: 'checkbox' })} /> Sí</label>
-          </div>
-
-          <div className="form-group">
-            <label>Foto de perfil</label>
-            <input type="file" accept="image/*" {...register('fotoPerfil', { type: 'file' })} />
-          </div>
-
-          <div className="form-group">
-            <label>Archivos</label>
-            <input type="file" {...register('multipleDocumentos', { type: 'file' })} multiple />
-          </div>
-
-          <button type="submit" onClick={handleSubmitForm}>Enviar formulario</button>
-          <button type="button" onClick={resetForm}>Limpiar formulario</button>
-        </div>
-
-        <div className="json-viewer">
-          {isLoading && <div className="spinner"></div>}
-
-          {showData && !isLoading && (
-            <div>
-              <JSONPretty
-                data={{
-                  ...formData,
-                  fotoPerfil: formData.fotoPerfil
-                    ? {
-                      name: formData.fotoPerfil.name,
-                      size: formData.fotoPerfil.size,
-                      type: formData.fotoPerfil.type,
-                    }
-                    : null,
-                  multipleDocumentos: formData.multipleDocumentos.length > 0
-                    ? formData.multipleDocumentos.map((file) => ({
-                      name: file.name,
-                      size: file.size,
-                      type: file.type,
-                    }))
-                    : [],
-                }}
-              />
-
-
-              {/* Mostrar campos vacíos debajo */}
-              {Object.entries(getEmptyFields()).length > 0 && (
+              {showData && !isLoading && (
                 <div>
-                  <h4>Campos vacíos:</h4>
-                  <JSONPretty data={getEmptyFields()} />
+                  <JSONPretty
+                    data={{
+                      ...formData,
+                      fotoPerfil: formData.fotoPerfil
+                        ? {
+                          name: formData.fotoPerfil.name,
+                          size: formData.fotoPerfil.size,
+                          type: formData.fotoPerfil.type,
+                        }
+                        : null,
+                      multipleDocumentos: formData.multipleDocumentos.length > 0
+                        ? formData.multipleDocumentos.map((file) => ({
+                          name: file.name,
+                          size: file.size,
+                          type: file.type,
+                        }))
+                        : [],
+                    }}
+                  />
+
+                  {/* Mostrar campos vacíos debajo */}
+                  {Object.entries(getEmptyFields()).length > 0 && (
+                    <div>
+                      <h4>Campos vacíos:</h4>
+                      <JSONPretty data={getEmptyFields()} />
+                    </div>
+                  )}
                 </div>
               )}
-            </div>
-          )}
 
+            </div>
+          </div>
         </div>
       </div>
     </>

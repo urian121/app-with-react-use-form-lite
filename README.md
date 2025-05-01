@@ -31,6 +31,3 @@ npm install
 📺 [YouTube](https://www.youtube.com/WebDeveloperUrianViera)  
 💌 [urian1213viera@gmail.com](mailto:urian1213viera@gmail.com)  
 ☕ [¡Apóyame en PayPal!](https://www.paypal.com/donate/?hosted_button_id=4SV78MQJJH3VE)
-
-
-© 2025 - Ejemplo de formulario en React.
