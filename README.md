@@ -1,12 +1,81 @@
-# React + Vite
+# Proyecto React - Formulario con `react-use-form-lite`
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es un ejemplo básico de una aplicación React que implementa un formulario utilizando el hook `react-use-form-lite`. Permite gestionar campos de entrada de manera sencilla, detectar campos vacíos, mostrar los datos enviados y visualizar archivos cargados.
 
-Currently, two official plugins are available:
+## Características
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Manejo de múltiples tipos de input (`text`, `number`, `email`, `range`, `select`, `radio`, `checkbox`, `file`).
+- Detección de campos vacíos con `getEmptyFields()`.
+- Vista previa de los datos del formulario en formato JSON.
+- Carga de archivos y ejemplo para manejo de múltiples archivos.
+- Simulación de envío de datos con spinner.
+- Botón de limpieza del formulario con `resetForm()`.
 
-## Expanding the ESLint configuration
+## Instalación
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. Clona el repositorio o copia el proyecto.
+2. Instala las dependencias:
+
+```bash
+npm install react-use-form-lite react-json-pretty
+```
+
+## Uso
+
+```tsx
+import { useForm } from 'react-use-form-lite';
+```
+
+Inicializa el formulario con un objeto base:
+
+```tsx
+const camposForm = {
+  nombre: '',
+  edad: '',
+  email: '',
+  range: '',
+  pais: '',
+  fecha_actual: '',
+  aceptaTerminos: '',
+  teGustaReact: '',
+  fotoPerfil: null,
+}
+```
+
+Registra los campos:
+
+```tsx
+<input type="text" {...register('nombre')} />
+```
+
+Manejo del envío:
+
+```tsx
+const handleSubmitForm = () => {
+  console.log('Datos:', formData);
+  console.log('Campos vacíos:', getEmptyFields());
+};
+```
+
+## Archivos múltiples
+
+Para inputs con `multiple`, como:
+
+```tsx
+<input type="file" {...register('multipleDocumentos', { type: 'file' })} multiple />
+```
+
+Declara el campo `multipleDocumentos` en `camposForm`. Puedes recorrer los archivos con:
+
+```tsx
+formData.multipleDocumentos.forEach((file) => console.log(file.name));
+```
+
+## Dependencias
+
+- [react-use-form-lite](https://www.npmjs.com/package/react-use-form-lite)
+- [react-json-pretty](https://www.npmjs.com/package/react-json-pretty)
+
+---
+
+© 2025 - Ejemplo de formulario en React.
