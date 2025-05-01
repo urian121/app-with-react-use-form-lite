@@ -21,6 +21,7 @@ export default function App() {
     aceptaTerminos: true,
     teGustaReact: false,
     fotoPerfil: null,
+    multipleDocumentos: [],
   }
 
   // Destructuring de useFormLite y sus propiedades
@@ -39,18 +40,15 @@ export default function App() {
       console.log('Datos del formulario:', formData);
       console.log('Campos vacíos:', getEmptyFields());
 
-      // verificar si el archivo fue cargado
+      // Verificar si el archivo fue cargado
       if (formData.fotoPerfil) {
         console.log('Archivo perfil:', formData.fotoPerfil.name);
       }
 
-      /**
-       * Para inputs con `multiple`, como:
-       * <input type="file" {...register('multipleDocumentos', { type: 'file' })} multiple />
-       * asegúrate de declarar `multipleDocumentos` en `camposForm`.
-       * Puedes recorrer los archivos con:
-       * formData.multipleDocumentos.forEach((file) => console.log(`Archivos cargados: ${file.name}`));
-      */
+      // Verificar si hay archivos cargados
+      if (formData.multipleDocumentos.length > 0) {
+        formData.multipleDocumentos.forEach((file) => console.log(`Archivos cargados: ${file.name}`));
+      }
 
     }, 500);
 
@@ -111,7 +109,12 @@ export default function App() {
 
           <div className="form-group">
             <label>Foto de perfil</label>
-            <input type="file" {...register('fotoPerfil', { type: 'file' })} />
+            <input type="file" accept="image/*" {...register('fotoPerfil', { type: 'file' })} />
+          </div>
+
+          <div className="form-group">
+            <label>Archivos</label>
+            <input type="file" {...register('multipleDocumentos', { type: 'file' })} multiple />
           </div>
 
           <button type="submit" onClick={handleSubmitForm}>Enviar formulario</button>
@@ -133,8 +136,16 @@ export default function App() {
                       type: formData.fotoPerfil.type,
                     }
                     : null,
+                  multipleDocumentos: formData.multipleDocumentos.length > 0
+                    ? formData.multipleDocumentos.map((file) => ({
+                      name: file.name,
+                      size: file.size,
+                      type: file.type,
+                    }))
+                    : [],
                 }}
               />
+
 
               {/* Mostrar campos vacíos debajo */}
               {Object.entries(getEmptyFields()).length > 0 && (
