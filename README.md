@@ -2,6 +2,11 @@
 
 Este proyecto es un ejemplo básico de una aplicación React que implementa un formulario utilizando el hook `react-use-form-lite`. Permite gestionar campos de entrada de manera sencilla, detectar campos vacíos, mostrar los datos enviados y visualizar archivos cargados.
 
+🎯 **`react-use-form-lite`** es un **Custom Hook** moderno, intuitivo, liviano y flexible para manejar formularios en React sin dependencias adicionales.
+Permite una implementación rápida y sin complicaciones, con soporte para inputs, selects, radios, checkboxes, archivos ¡y mucho más!
+
+![Vista previa](https://raw.githubusercontent.com/urian121/imagenes-proyectos-github/refs/heads/master/react-use-form-lite.gif)
+
 ## Características
 
 - Manejo de múltiples tipos de input (`text`, `number`, `email`, `range`, `select`, `radio`, `checkbox`, `file`).
@@ -17,65 +22,15 @@ Este proyecto es un ejemplo básico de una aplicación React que implementa un f
 2. Instala las dependencias:
 
 ```bash
-npm install react-use-form-lite react-json-pretty
+npm install
 ```
 
-## Uso
 
-```tsx
-import { useForm } from 'react-use-form-lite';
-```
+**Urian Viera**  
+🌐 [urianviera.com](https://www.urianviera.com)  
+📺 [YouTube](https://www.youtube.com/WebDeveloperUrianViera)  
+💌 [urian1213viera@gmail.com](mailto:urian1213viera@gmail.com)  
+☕ [¡Apóyame en PayPal!](https://www.paypal.com/donate/?hosted_button_id=4SV78MQJJH3VE)
 
-Inicializa el formulario con un objeto base:
-
-```tsx
-const camposForm = {
-  nombre: '',
-  edad: '',
-  email: '',
-  range: '',
-  pais: '',
-  fecha_actual: '',
-  aceptaTerminos: '',
-  teGustaReact: '',
-  fotoPerfil: null,
-}
-```
-
-Registra los campos:
-
-```tsx
-<input type="text" {...register('nombre')} />
-```
-
-Manejo del envío:
-
-```tsx
-const handleSubmitForm = () => {
-  console.log('Datos:', formData);
-  console.log('Campos vacíos:', getEmptyFields());
-};
-```
-
-## Archivos múltiples
-
-Para inputs con `multiple`, como:
-
-```tsx
-<input type="file" {...register('multipleDocumentos', { type: 'file' })} multiple />
-```
-
-Declara el campo `multipleDocumentos` en `camposForm`. Puedes recorrer los archivos con:
-
-```tsx
-formData.multipleDocumentos.forEach((file) => console.log(file.name));
-```
-
-## Dependencias
-
-- [react-use-form-lite](https://www.npmjs.com/package/react-use-form-lite)
-- [react-json-pretty](https://www.npmjs.com/package/react-json-pretty)
-
----
 
 © 2025 - Ejemplo de formulario en React.

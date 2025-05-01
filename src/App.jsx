@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useForm } from 'react-use-form-lite';
+import { useFormLite } from 'react-use-form-lite';
 
 import JSONPretty from 'react-json-pretty';
 import 'react-json-pretty/themes/monikai.css';
@@ -18,13 +18,13 @@ export default function App() {
     range: '',
     pais: '',
     fecha_actual: '',
-    aceptaTerminos: '',
-    teGustaReact: '',
+    aceptaTerminos: true,
+    teGustaReact: false,
     fotoPerfil: null,
   }
 
-  // Destructuring de useForm y sus propiedades
-  const { formData, register, resetForm, getEmptyFields } = useForm(camposForm);
+  // Destructuring de useFormLite y sus propiedades
+  const { formData, register, resetForm, getEmptyFields } = useFormLite(camposForm);
 
   const handleSubmitForm = () => {
     setIsLoading(true);
@@ -99,8 +99,8 @@ export default function App() {
           <div className="form-group">
             <label>¿Aceptar términos?</label>
             <div className="radio-group">
-              <label><input type="radio" {...register('aceptaTerminos', { type: 'radio', value: 'si' })} /> Sí</label>
-              <label><input type="radio" {...register('aceptaTerminos', { type: 'radio', value: 'no' })} /> No</label>
+              <label><input type="radio" {...register('aceptaTerminos', { type: 'radio', value: 'Sí' })} /> Sí</label>
+              <label><input type="radio" {...register('aceptaTerminos', { type: 'radio', value: 'No' })} /> No</label>
             </div>
           </div>
 
