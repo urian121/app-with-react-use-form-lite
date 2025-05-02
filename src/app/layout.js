@@ -39,6 +39,7 @@ export default function RootLayout({ children }) {
         <meta name="twitter:description" content="Un Custom Hook moderno, intuitivo, liviano y flexible para manejar formularios en React sin dependencias adicionales." />
         <meta name="twitter:image" content="https://react-use-form-lite.vercel.app/vercel.svg" />
         <link rel="icon" href="/favicon.ico" />
+        <meta name="google-site-verification" content="9TeFPJ3zVrzEe3QuHvmXgzbrlbZArTV6xt_FiEk5Of0" />
         <title>react-use-form-lite</title>
       </head>
       <body className="font-sans">
