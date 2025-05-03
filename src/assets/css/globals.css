@@ -18,7 +18,23 @@ body {
   border-radius: 8px;
   color: white;
 }
+.title-effect {
+  position: relative;
+  z-index: 0;
+}
 
+.title-effect::before {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 870px;
+  height: 680px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: radial-gradient( 50% 50% at 50% 50%, rgba(130, 141, 67, 0.7) 0, rgba(217, 217, 217, 0) 100% );
+  z-index: -1;
+}
 a {
   color: #fff !important;
   text-decoration: none !important;
