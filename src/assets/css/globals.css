@@ -18,17 +18,22 @@ body {
   border-radius: 8px;
   color: white;
 }
+
 .title-effect {
   position: relative;
   z-index: 0;
+  font-size: clamp(2rem, 6vw, 5rem);
+  font-weight: 900;
+  letter-spacing: 1px;
 }
+
 
 .title-effect::before {
   position: absolute;
   content: "";
   display: block;
-  width: 870px;
-  height: 680px;
+  width: 700px;
+  height: 400px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);

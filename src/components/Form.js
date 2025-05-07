@@ -57,7 +57,7 @@ const Form = () => {
     return (
         <div className="container mt-5 mb-5">
             <div className="row">
-                <div className="col-md-5 form-container">
+                <div className="col-md-5 mb-5 form-container">
                     <div className="row">
                         <div className="col-md-8 mb-3">
                             <div className="mb-0">
