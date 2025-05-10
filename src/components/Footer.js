@@ -41,7 +41,7 @@ const Footer = () => {
                                 <TfiYoutube />
                             </a>
                             <a
-                                href="https://www.npmjs.com/settings/urian-viera/packages"
+                                href="https://www.npmjs.com/~urian-viera"
                                 target="_blank"
                                 className="mx-3 fs-4 icon-hover"
                             >
