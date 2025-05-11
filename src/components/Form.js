@@ -80,7 +80,7 @@ const Form = () => {
                     <div className="row">
                         <div className="col-md-8 mb-3">
                             <label>País</label>
-                            <select name="pais" className="form-select" {...register('pais', { type: 'select' })}>
+                            <select className="form-select" {...register('pais', { type: 'select' })}>
                                 <option value="">Seleccione un país</option>
                                 <option value="Colombia">Colombia</option>
                                 <option value="México">México</option>
